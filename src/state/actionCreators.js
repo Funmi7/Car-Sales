@@ -6,3 +6,10 @@ export function buyItem(item) {
         payload: item
     };
 }
+
+export function removeFeature(item) {
+    return {
+        type: types.REMOVE_FEATURES,
+        payload: item
+    };
+}

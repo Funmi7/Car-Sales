@@ -21,17 +21,32 @@ export function addOnFeaturesReducer(state = initialState, action) {
         case types.BUY_ITEMS:
             return {
                 ...state, 
-                additionalPrice: state.additionalPrice + action.payload.price,
+                additionalPrice: state.additionalPrice += action.payload.price,
 
                 car: {
                     ...state.car, 
-                    features:state.car.features.concat(action.payload), 
+                    features: [...state.car.features, action.payload], 
                 },
 
                 store: state.store.filter(item => {
                     return item.id !== action.payload.id
                 })
             };
+
+        case types.REMOVE_FEATURES:
+            return {
+                ...state,
+                additionalPrice: state.additionalPrice -= action.payload.price,
+
+                store: [...state.store, action.payload],
+
+                car: {
+                    ...state.car,
+                    features: state.car.features.filter(item => {
+                        return item.id !== action.payload.id
+                    })
+                },
+            }
         default:
              return state;
     }

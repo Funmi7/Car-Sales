@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import * as actionCreators from './state/actionCreators';
 
 export const App = (props) => {
-  const {state, buyItem} = props;
+  const {state, buyItem, removeFeature} = props;
   // const state = {
   //   additionalPrice: 0,
   //   car: {
@@ -27,9 +27,9 @@ export const App = (props) => {
   //   ]
   // };
 
-  const removeFeature = item => {
-    // dispatch an action here to remove an item
-  };
+  // const removeFeature = item => {
+  //   // dispatch an action here to remove an item
+  // };
 
   // const buyItem = item => {
   //   // dipsatch an action here to add an item
@@ -41,7 +41,8 @@ export const App = (props) => {
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <AddedFeatures car={state.car}
+        removeFeature={removeFeature} />
       </div>
       <div className="box">
         <AdditionalFeatures store={state.store}
