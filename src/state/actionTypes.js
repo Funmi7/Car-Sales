@@ -1,1 +1,1 @@
-export const ON_ADD_FEATURES = 'ON_ADD_FEATURES';
+export const BUY_ITEMS = 'BUY_ITEMS';

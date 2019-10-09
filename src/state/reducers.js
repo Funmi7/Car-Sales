@@ -18,14 +18,14 @@ const initialState = {
 
 export function addOnFeaturesReducer(state = initialState, action) {
     switch (action.type) {
-        case types.ON_ADD_FEATURES:
+        case types.BUY_ITEMS:
             return {
                 ...state, 
-                additionalPrice: (state.additionalPrice += action.payload.price),
+                additionalPrice: state.additionalPrice + action.payload.price,
 
                 car: {
                     ...state.car, 
-                    features: [...state.car.features, action.payload], 
+                    features:state.car.features.concat(action.payload), 
                 },
 
                 store: state.store.filter(item => {
