@@ -8,7 +8,7 @@ import './styles.scss';
 import * as reducers from './state/reducers';
 
 const combinedReducer = combineReducers({
-    state: reducers.addOnFeaturesReducer
+    state: reducers.stateReducer
 });
 
 const store = createStore(

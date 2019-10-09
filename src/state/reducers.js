@@ -16,7 +16,7 @@ const initialState = {
     ]
 }
 
-export function addOnFeaturesReducer(state = initialState, action) {
+export function stateReducer(state = initialState, action) {
     switch (action.type) {
         case types.BUY_ITEMS:
             return {
